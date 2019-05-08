@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_zona">
+        <item>Tingo Maria</item>
+        <item>Tocache</item>
+        <item>Moyombamba</item>
+    </string-array>
+    <string-array name="array_asesor">
+        <item>A1</item>
+        <item>A2</item>
+        <item>A3</item>
+    </string-array>
+</resources>

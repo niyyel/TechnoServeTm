@@ -46,10 +46,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class ContactFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
 
@@ -70,8 +66,6 @@ public class ContactFragment extends Fragment {
     public static ContactFragment newInstance(String param1, String param2) {
         ContactFragment fragment = new ContactFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -152,14 +146,15 @@ public class ContactFragment extends Fragment {
         }
         obtenerLista();
     }
+
     public void obtenerLista()
     {
 
         ConnectionSQLiteHelper androidconexion = new ConnectionSQLiteHelper(getContext(), "contact", null, 1);
         SQLiteDatabase db = androidconexion.getWritableDatabase();
         Cursor cursor;
-            String selectQuery = "SELECT  * FROM contact ";
-            cursor = db.rawQuery(selectQuery, null);
+        String selectQuery = "SELECT  * FROM contact ";
+        cursor = db.rawQuery(selectQuery, null);
 
         ArrayList<HashMap<String, String>> proList;
         proList = new ArrayList<HashMap<String, String>>();
@@ -171,9 +166,9 @@ public class ContactFragment extends Fragment {
             map.put("campo_nombre", cursor.getString(1));
             map.put("campo_numero", cursor.getString(2));
             proList.add(map);
-           // Log.i("list...", cursor.getInt(0)+"-"+cursor.getString(1)+"-"+cursor.getString(2));
+            // Log.i("list...", cursor.getInt(0)+"-"+cursor.getString(1)+"-"+cursor.getString(2));
         }
-       cursor.close();
+        cursor.close();
 
         if (proList.size() != 0) {
             ListAdapter adapter = new SimpleAdapter(getContext(), proList,
@@ -185,8 +180,20 @@ public class ContactFragment extends Fragment {
             lista.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
                 @Override
                 public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
+                    final int checkedCount = lista.getCheckedItemCount();
+                    switch (checkedCount) {
+                        case 0:
+                            mode.setSubtitle(null);
+                            break;
+                        case 1:
+                            mode.setSubtitle("One item selected");
+                            break;
+                        default:
+                            mode.setSubtitle("" + checkedCount + " items selected");
+                            break;
+                    }
                     //capture total checked items
-                    checkedCount = lista.getCheckedItemCount();
+                    /*checkedCount = lista.getCheckedItemCount();
                     //setting CAB title
                     mode.setTitle(checkedCount + " Selected");
                     //list_item.add(id);
@@ -194,7 +201,7 @@ public class ContactFragment extends Fragment {
                         list_item.add(id);     // Add to list when checked ==  true
                     }else {
                         list_item.remove(id);
-                    }
+                    }*/
 
                 }
 
@@ -203,46 +210,39 @@ public class ContactFragment extends Fragment {
                     //Inflate the CAB
                     MenuInflater inflater = mode.getMenuInflater();
                     inflater.inflate(R.menu.menu_multi_select, menu);
+                    mode.setTitle("Select Items");
                     return true;
                 }
 
                 @Override
                 public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-                    return false;
+                    return true;
                 }
 
                 @Override
                 public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                    final int deleteSize = list_item.size();
-                    int itemId = item.getItemId();
-                    if(itemId == R.id.action_delete) {
-
-                        for(Object ids : list_item){
-                            // Make proper check, if needed, before deletion
-                           /* String whereDelId = DBOpenHelper.COL_ID + "=" + ids;
-                            int res = getContentResolver().delete(TripProvider.CONTENT_URI_START, whereDelId, null);
-                            if(res == -1){
-                               // Log.d(TAG, "onActionItemClicked: Delete Failed for ID = "+ids);
-                            }*/
-                        }
-
+                    switch (item.getItemId()) {
+                        case R.id.share:
+                            Toast.makeText(getContext(), "Shared " + lista.getCheckedItemCount() +
+                                    " items", Toast.LENGTH_SHORT).show();
+                            mode.finish();
+                            break;
+                        default:
+                            Toast.makeText(getContext(), "Clicked " + item.getTitle(),
+                                    Toast.LENGTH_SHORT).show();
+                            break;
                     }
-                   // Toast.makeText(context,deleteSize+" Items deleted",Toast.LENGTH_SHORT).show();
-
-                    checkedCount = 0;
-                    list_item.clear();
-                    mode.finish();
                     return true;
-                   // return false;
+                    // Toast.makeText(context,deleteSize+" Items deleted",Toast.LENGTH_SHORT).show();
+
                 }
                 @Override
                 public void onDestroyActionMode(ActionMode mode) {
                     // refresh list after deletion
-                   // displayDataList();
+                    // displayDataList();
                 }
             });
 
         }
     }
-
 }

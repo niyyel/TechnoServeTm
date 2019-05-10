@@ -7,6 +7,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:checkable="true"
+        android:background="@drawable/bg_key"
         android:orientation="horizontal">
 
         <TextView

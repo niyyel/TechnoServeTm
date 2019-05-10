@@ -40,7 +40,6 @@
             android:id="@+id/list_usuario"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:listSelector="@drawable/bg_key"
             android:layout_marginTop="50dp" />
     </LinearLayout>
 

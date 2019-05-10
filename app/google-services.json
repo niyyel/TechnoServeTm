@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "129650866102",
+    "firebase_url": "https://technoservetm-65395.firebaseio.com",
+    "project_id": "technoservetm-65395",
+    "storage_bucket": "technoservetm-65395.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129650866102:android:cd7ddade52c3ee38",
+        "android_client_info": {
+          "package_name": "com.example.djnig.technoservetm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129650866102-ira8jfaj8nh55pdedmtcf8lcmoqsq22h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.djnig.technoservetm",
+            "certificate_hash": "ab0b91fabce7c185ec66c19a654b072ab941413e"
+          }
+        },
+        {
+          "client_id": "129650866102-jdaktj15g68k71igqb4f3qcbumbj0d1i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBh5v64lrUmu7Nydq6z0G67KjrV3t6YZgQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129650866102-jdaktj15g68k71igqb4f3qcbumbj0d1i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

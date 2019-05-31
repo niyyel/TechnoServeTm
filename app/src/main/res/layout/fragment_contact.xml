@@ -12,7 +12,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editTextBuscar"
+            android:id="@+id/editTextSmsWrite"
             android:layout_width="wrap_content"
             android:layout_height="53dp"
             android:layout_weight="1"
@@ -22,7 +22,7 @@
             />
 
         <Button
-            android:id="@+id/ButtonBuscar"
+            android:id="@+id/ButtonEnviar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

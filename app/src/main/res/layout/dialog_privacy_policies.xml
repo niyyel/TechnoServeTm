@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="POLÍTICAS DE PRIVACIDAD" />
+            <me.biubiubiu.justifytext.library.JustifyTextView
+                android:id="@+id/texItinerario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:text="Términos y Condiciones \n \nEl aplicativo “WhatsCoffee” es una plataforma virtual creada por la ONG TechnoServe que permitirá realizar la automatización del envío de SMS masivos a los agricultores o usuarios con los que se trabajará\n"
+                android:textSize="14sp" />
+
+            <CheckBox
+                android:id="@+id/checkBoxPolicy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Acepto los términos y condiciones" />
+
+            <Button
+                android:id="@+id/buttonAceptar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:textColor="#f1eaea"
+                android:text="Permitir el envio de SMS de texto" />
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
